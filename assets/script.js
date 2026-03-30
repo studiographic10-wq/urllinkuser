@@ -87,7 +87,7 @@ const uiTranslations = {
         "sidebar-home": "Home",
         "sidebar-all": "All Services",
         "sidebar-categories": "Categories",
-        "sidebar-workspace": "CSC WORK SPACE",
+        "sidebar-workspace": "CSC OFFICIAL LOGIN",
         "btn-about-services": "About Services",
         "btn-about-us": "About Us",
         "btn-csc-register": "CSC Register",
