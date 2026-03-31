@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -466,30 +466,25 @@
             </div>
 
             <div class="sidebar-menu">
-                <a href="#" class="menu-item active" id="btnSidebarHome" style="text-decoration: none; margin: 10px 0;">
-                    <ion-icon name="home" style="font-size: 22px; margin-left: 10px; color: var(--primary);"></ion-icon>
-                    <span style="margin-left: 12px; font-weight: bold; color: #ffffff;">Home</span>
+                <!-- 1. Home -->
+                <a href="#" class="menu-item active" id="btnSidebarHome">
+                    <ion-icon name="home" class="mi-icon"></ion-icon>
+                    <span>Home</span>
                 </a>
 
-                <a href="all html file/pdf_form.html" class="menu-item" style="text-decoration: none; margin: 10px 0;">
-                    <ion-icon name="document-attach-outline"
-                        style="font-size: 22px; margin-left: 10px; color: var(--primary);"></ion-icon>
-                    <span style="margin-left: 12px; font-weight: bold; color: #ffffff;">PDF FORM</span>
+                <!-- 2. All Services -->
+                <a href="#" class="menu-item" id="btnSidebarAll">
+                    <ion-icon name="apps" class="mi-icon"></ion-icon>
+                    <span>All Services</span>
                 </a>
 
-                <a href="#" class="menu-item" id="btnSidebarAll" style="text-decoration: none; margin: 10px 0;">
-                    <ion-icon name="apps" style="font-size: 22px; margin-left: 10px; color: var(--primary);"></ion-icon>
-                    <span style="margin-left: 12px; font-weight: bold; color: #ffffff;">All Services</span>
-                </a>
-
+                <!-- 3. Categories -->
                 <div class="dropdown-wrapper">
-                    <a href="#" class="menu-item category-toggle-btn" id="btnCategoriesToggle"
-                        style="text-decoration: none; margin: 10px 0 0 0;">
-                        <ion-icon name="grid"
-                            style="font-size: 22px; margin-left: 10px; color: var(--primary);"></ion-icon>
-                        <span style="margin-left: 12px; font-weight: bold; color: #ffffff;">Categories</span>
+                    <a href="#" class="menu-item category-toggle-btn" id="btnCategoriesToggle">
+                        <ion-icon name="grid" class="mi-icon"></ion-icon>
+                        <span>Categories</span>
                         <ion-icon name="chevron-forward-outline" class="toggle-arrow"
-                            style="margin-left: auto; margin-right: 10px; font-size: 16px; transition: transform 0.3s;"></ion-icon>
+                            style="margin-left: auto; font-size: 13px; color: rgba(245,158,11,0.55); transition: transform 0.3s;"></ion-icon>
                     </a>
                     <div class="menu-section" id="categoriesSectionWrapper" style="display: none;">
                         <ul class="section-list" id="categoryList">
@@ -498,55 +493,57 @@
                     </div>
                 </div>
 
+                <!-- 4. CSC Official Login -->
                 <a href="https://connect.csc.gov.in/account/authorize?response_type=code&client_id=0f8ca686-5a31-46b8-bb51-d9834ba9fa9d&redirect_uri=https%3A%2F%2Fdigitalseva.csc.gov.in%2Fauth%2Fcallback%2F&state=85997"
-                    class="menu-item" style="text-decoration: none;">
-                    <div class="avatar"><img
-                            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmRQV982vDFH9Mgp4-V4Ffw9x-u0HxxSCeNQ&s"
-                            alt="User"></div>
-                    <span style="font-weight: bold; color: #ffffff;">CSC OFFICIAL LOGIN</span>
+                    class="menu-item">
+                    <ion-icon name="finger-print" class="mi-icon"></ion-icon>
+                    <span>CSC OFFICIAL LOGIN</span>
                 </a>
 
-                <a href="all html file/id-card-generator.html" class="menu-item"
-                    style="text-decoration: none; margin: 10px 0;">
-                    <ion-icon name="id-card-outline"
-                        style="font-size: 22px; margin-left: 10px; color: var(--primary);"></ion-icon>
-                    <span style="margin-left: 12px; font-weight: bold; color: #ffffff;">Pro ID-STUDIO 2.0</span>
+                <!-- 5. PDF Form -->
+                <a href="all html file/pdf_form.html" class="menu-item">
+                    <ion-icon name="document-attach" class="mi-icon"></ion-icon>
+                    <span>PDF FORM</span>
                 </a>
 
-                <a href="all html file/RETION PRO - 2.0vr.html" class="menu-item"
-                    style="text-decoration: none; margin: 10px 0;">
-                    <ion-icon name="document-text-outline"
-                        style="font-size: 22px; margin-left: 10px; color: var(--primary);"></ion-icon>
-                    <span style="margin-left: 12px; font-weight: bold; color: #ffffff;">RETION PRO - 2.0vr</span>
+                <!-- 6. Retion Pro -->
+                <a href="all html file/RETION PRO - 2.0vr.html" class="menu-item">
+                    <ion-icon name="restaurant" class="mi-icon"></ion-icon>
+                    <span>RETION PRO - 2.0vr</span>
                 </a>
 
-                <a href="all html file/E-CARD-3.0.html" class="menu-item"
-                    style="text-decoration: none; margin: 10px 0;">
-                    <ion-icon name="card-outline"
-                        style="font-size: 22px; margin-left: 10px; color: var(--primary);"></ion-icon>
-                    <span style="margin-left: 12px; font-weight: bold; color: #ffffff;">E-CARD-3.0</span>
+                <!-- 7. Pro ID-Studio -->
+                <a href="all html file/id-card-generator.html" class="menu-item">
+                    <ion-icon name="id-card" class="mi-icon"></ion-icon>
+                    <span>Pro ID-STUDIO 2.0</span>
+                </a>
+
+                <!-- 8. E-Card -->
+                <a href="all html file/E-CARD-3.0.html" class="menu-item">
+                    <ion-icon name="card" class="mi-icon"></ion-icon>
+                    <span>E-CARD-3.0</span>
                 </a>
             </div>
 
             <div class="sidebar-footer">
                 <a href="all html file/GST_BILL.html" target="_blank" class="register-btn">
-                    <ion-icon name="receipt"></ion-icon>
+                    <ion-icon name="receipt" class="rb-icon"></ion-icon>
                     <span>GST Bill</span>
                 </a>
                 <a href="https://locator.csccloud.in/" target="_blank" class="register-btn">
-                    <ion-icon name="location"></ion-icon>
+                    <ion-icon name="location" class="rb-icon"></ion-icon>
                     <span>Locator</span>
                 </a>
                 <a href="https://jaankari.csccloud.in/" target="_blank" class="register-btn">
-                    <ion-icon name="information-circle"></ion-icon>
+                    <ion-icon name="information-circle" class="rb-icon"></ion-icon>
                     <span>About Us</span>
                 </a>
                 <a href="https://jansevakendra.org/services/" target="_blank" class="register-btn">
-                    <ion-icon name="list-circle-outline"></ion-icon>
+                    <ion-icon name="list-circle" class="rb-icon"></ion-icon>
                     <span>Services</span>
                 </a>
                 <a href="https://register.csc.gov.in/" target="_blank" class="register-btn">
-                    <ion-icon name="document-text"></ion-icon>
+                    <ion-icon name="person-add" class="rb-icon"></ion-icon>
                     <span>CSC Register</span>
                 </a>
             </div>
@@ -621,36 +618,37 @@
                 </div>
             </header>
 
-            <!-- Scrolling Notification Ribbon -->
-            <style>
-                @keyframes blinkRed {
-                    0% {
-                        opacity: 1;
-                        text-shadow: 0 0 5px rgba(239, 68, 68, 0.5);
-                    }
-
-                    50% {
-                        opacity: 0;
-                        text-shadow: none;
-                    }
-
-                    100% {
-                        opacity: 1;
-                        text-shadow: 0 0 5px rgba(239, 68, 68, 0.5);
-                    }
-                }
-
-                .blink-red {
-                    color: #ef4444;
-                    font-weight: 800;
-                    margin-left: 20px;
-                    animation: blinkRed 1.2s infinite;
-                }
-            </style>
-            <div class="notification-ribbon">
-                <div class="ribbon-text" id="runningRibbonText">
-                    Disclaimer: Not an official government website. This portal provides an easy-to-use interface to
-                    access and manage public information from official sources.
+            <!-- ===== PREMIUM TICKER RIBBON ===== -->
+            <div class="ticker-ribbon" id="tickerRibbon">
+                <div class="ticker-label">
+                    <span class="notice-dot"></span>
+                    ⚠ NOTICE
+                </div>
+                <div class="ticker-track">
+                    <div class="ticker-content" id="tickerContent">
+                        <!-- Item 1 (original) -->
+                        <span class="ticker-item">
+                            <ion-icon name="information-circle" class="ticker-icon"></ion-icon>
+                            Disclaimer: Not an official government website. This portal provides an easy-to-use interface to access and manage public information from official sources.
+                        </span>
+                        <span class="ticker-separator">◆</span>
+                        <span class="ticker-item">
+                            <ion-icon name="shield-checkmark" class="ticker-icon"></ion-icon>
+                            All data shown is sourced from official public records. For official services, please visit your nearest government service centre.
+                        </span>
+                        <span class="ticker-separator">◆</span>
+                        <!-- Item 2 (duplicate for seamless loop) -->
+                        <span class="ticker-item">
+                            <ion-icon name="information-circle" class="ticker-icon"></ion-icon>
+                            Disclaimer: Not an official government website. This portal provides an easy-to-use interface to access and manage public information from official sources.
+                        </span>
+                        <span class="ticker-separator">◆</span>
+                        <span class="ticker-item">
+                            <ion-icon name="shield-checkmark" class="ticker-icon"></ion-icon>
+                            All data shown is sourced from official public records. For official services, please visit your nearest government service centre.
+                        </span>
+                        <span class="ticker-separator">◆</span>
+                    </div>
                 </div>
             </div>
 

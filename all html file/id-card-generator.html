@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -947,24 +947,8 @@
 
 <body>
 
-    <div id="loginOverlay" class="login-overlay">
-        <a href="../index.html" class="overlay-back-link"><ion-icon name="arrow-back-outline"></ion-icon> <span>Back to
-                Home</span></a>
-        <div class="login-card">
-            <div class="login-logo"><ion-icon name="lock-closed-outline"></ion-icon></div>
-            <h2>Secure Access</h2>
-            <p>Please enter the 4-digit PIN to open the Pro ID Studio.</p>
-            <input type="password" id="pinInput" class="login-input" placeholder="4-Digit PIN" pattern="\d{4}"
-                maxlength="4" onkeypress="if(event.key === 'Enter') checkPwd()">
-            <button onclick="checkPwd()" class="login-btn"><ion-icon name="key-outline"></ion-icon>
-                <span>Unlock</span></button>
-            <p id="pwdError"
-                style="color: #ef4444; font-size: 13px; display: none; margin-top: 15px; font-weight: 600;">Incorrect
-                PIN!</p>
-        </div>
-    </div>
 
-    <div id="mainApp" style="display: none; flex-direction: column; flex: 1; width: 100%;">
+    <div id="mainApp" style="display: flex; flex-direction: column; flex: 1; width: 100%;">
 
         <!-- ─── TOP BAR ─── -->
         <nav class="topbar">
@@ -2096,18 +2080,7 @@
 
     </div>
     <script>
-        function checkPwd() {
-            const input = document.getElementById('pinInput').value;
-            // PDF Form PIN
-            if (input === '4314') {
-                // Hide login overlay, show main application
-                document.getElementById('loginOverlay').style.display = 'none';
-                document.getElementById('mainApp').style.display = 'flex';
-            } else {
-                // Show Error
-                document.getElementById('pwdError').style.display = 'block';
-            }
-        }
+        // Password removed — open access for all visitors
     </script>
 </body>
 
