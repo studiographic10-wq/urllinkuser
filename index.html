@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -401,6 +401,70 @@
                 opacity: 1;
             }
         }
+
+        /* ===== CENSUS NOTICE BOX (top-right blinking) ===== */
+        #censusNoticeBox {
+            display: flex;
+            align-items: center;
+            gap: 7px;
+            background: linear-gradient(90deg, rgba(13,71,161,0.92) 0%, rgba(21,101,192,0.88) 100%);
+            border: 1.5px solid rgba(255, 214, 0, 0.75);
+            border-radius: 8px;
+            padding: 5px 11px 5px 9px;
+            max-width: 260px;
+            box-shadow: 0 2px 12px rgba(13,71,161,0.45), 0 0 0 1px rgba(255,214,0,0.15);
+            animation: censusSlowBlink 2.4s ease-in-out infinite;
+            cursor: default;
+            text-decoration: none;
+            flex-shrink: 0;
+        }
+
+        @keyframes censusSlowBlink {
+            0%, 100% { opacity: 1; box-shadow: 0 2px 12px rgba(13,71,161,0.45), 0 0 0 1px rgba(255,214,0,0.15); }
+            50% { opacity: 0.52; box-shadow: 0 2px 4px rgba(13,71,161,0.2), 0 0 0 1px rgba(255,214,0,0.05); }
+        }
+
+        #censusNoticeBox .census-flag {
+            font-size: 18px;
+            flex-shrink: 0;
+            line-height: 1;
+        }
+
+        #censusNoticeBox .census-text {
+            display: flex;
+            flex-direction: column;
+            gap: 1px;
+        }
+
+        #censusNoticeBox .census-title {
+            font-size: 9.5px;
+            font-weight: 800;
+            color: #ffd600;
+            letter-spacing: 0.7px;
+            text-transform: uppercase;
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.2;
+        }
+
+        #censusNoticeBox .census-sub {
+            font-size: 8.5px;
+            color: rgba(255,255,255,0.9);
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.3;
+        }
+
+        #censusNoticeBox .census-sub a {
+            color: #ffd600;
+            text-decoration: underline;
+            font-weight: 700;
+        }
+
+        #censusNoticeBox .census-date {
+            font-size: 8px;
+            color: rgba(255,255,255,0.75);
+            font-family: 'Poppins', sans-serif;
+            margin-top: 2px;
+        }
     </style>
 </head>
 
@@ -608,6 +672,8 @@
                         <button id="lang-or">OR</button>
                     </div>
 
+
+
                     <!-- Blinking LIVE Icon -->
                     <div class="live-badge">
                         <div class="play-circle">
@@ -626,6 +692,14 @@
                 </div>
                 <div class="ticker-track">
                     <div class="ticker-content" id="tickerContent">
+                        <!-- Census 2027 Notice -->
+                        <span class="ticker-item" style="font-weight:700; color:#ffd600;">
+                            <ion-icon name="flag" class="ticker-icon" style="color:#ffd600;"></ion-icon>
+                            🇮🇳 Census of India 2027 — Office of the Registrar General &amp; Census Commissioner — Self-Enumeration (HLO) Login:
+                            <a href="https://se.census.gov.in/" target="_blank" style="color:#ffd600; text-decoration:underline; margin:0 4px;">https://se.census.gov.in/</a>
+                            — One Household should use only One Mobile Number — Date: 01 Apr 2026 to 25 Apr 2026
+                        </span>
+                        <span class="ticker-separator">◆</span>
                         <!-- Item 1 (original) -->
                         <span class="ticker-item">
                             <ion-icon name="information-circle" class="ticker-icon"></ion-icon>
@@ -638,6 +712,13 @@
                         </span>
                         <span class="ticker-separator">◆</span>
                         <!-- Item 2 (duplicate for seamless loop) -->
+                        <span class="ticker-item" style="font-weight:700; color:#ffd600;">
+                            <ion-icon name="flag" class="ticker-icon" style="color:#ffd600;"></ion-icon>
+                            🇮🇳 Census of India 2027 — Office of the Registrar General &amp; Census Commissioner — Self-Enumeration (HLO) Login:
+                            <a href="https://se.census.gov.in/" target="_blank" style="color:#ffd600; text-decoration:underline; margin:0 4px;">https://se.census.gov.in/</a>
+                            — One Household should use only One Mobile Number — Date: 01 Apr 2026 to 25 Apr 2026
+                        </span>
+                        <span class="ticker-separator">◆</span>
                         <span class="ticker-item">
                             <ion-icon name="information-circle" class="ticker-icon"></ion-icon>
                             Disclaimer: Not an official government website. This portal provides an easy-to-use interface to access and manage public information from official sources.
@@ -650,6 +731,72 @@
                         <span class="ticker-separator">◆</span>
                     </div>
                 </div>
+            </div>
+
+            <!-- ===== CENSUS 2027 MESSAGE BAR ===== -->
+            <div id="censusBar" style="
+                width: 100%;
+                background: linear-gradient(90deg, #0d1b6e 0%, #1565C0 50%, #0d1b6e 100%);
+                border-bottom: 2px solid rgba(255,214,0,0.7);
+                border-top: 1.5px solid rgba(255,214,0,0.35);
+                padding: 6px 18px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 10px;
+                box-sizing: border-box;
+                flex-wrap: wrap;
+            ">
+                <style>
+                    @keyframes censusTextBlinkRed {
+                        0%, 100% { color: #ff1a1a; text-shadow: 0 0 8px rgba(255, 0, 0, 0.6); opacity: 1; }
+                        50% { color: #ff1a1a; opacity: 0.3; }
+                    }
+                </style>
+                <span style="font-size:17px; line-height:1; flex-shrink:0;">🇮🇳</span>
+                <span style="
+                    font-family: 'Poppins', sans-serif;
+                    font-size: 11.5px;
+                    font-weight: 800;
+                    color: #ff1a1a;
+                    letter-spacing: 0.4px;
+                    white-space: nowrap;
+                    flex-shrink: 0;
+                    animation: censusTextBlinkRed 1.2s ease-in-out infinite;
+                ">Census of India 2027</span>
+                <span style="color: rgba(255,255,255,0.5); font-size:10px;">|</span>
+                <span style="
+                    font-family: 'Poppins', sans-serif;
+                    font-size: 10.5px;
+                    color: rgba(255,255,255,0.92);
+                    font-weight: 500;
+                    white-space: nowrap;
+                ">Office of the Registrar General &amp; Census Commissioner &mdash; Self-Enumeration (HLO) Login:</span>
+                <a href="https://se.census.gov.in/" target="_blank" style="
+                    font-family: 'Poppins', sans-serif;
+                    font-size: 10.5px;
+                    font-weight: 700;
+                    color: #ffd600;
+                    text-decoration: underline;
+                    white-space: nowrap;
+                    flex-shrink: 0;
+                ">se.census.gov.in</a>
+                <span style="color: rgba(255,255,255,0.5); font-size:10px;">|</span>
+                <span style="
+                    font-family: 'Poppins', sans-serif;
+                    font-size: 10.5px;
+                    color: rgba(255,255,255,0.88);
+                    font-weight: 500;
+                    white-space: nowrap;
+                ">One Household = One Mobile Number</span>
+                <span style="color: rgba(255,255,255,0.5); font-size:10px;">|</span>
+                <span style="
+                    font-family: 'Poppins', sans-serif;
+                    font-size: 10px;
+                    color: #ffd600;
+                    font-weight: 600;
+                    white-space: nowrap;
+                ">📅 01 Apr &ndash; 25 Apr 2026</span>
             </div>
 
             <!-- Animated Banner -->
