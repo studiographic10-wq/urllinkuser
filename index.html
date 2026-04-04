@@ -878,283 +878,218 @@
 
                 <!-- Banner CSS + JS injected inline for self-containment -->
                 <style>
+                    /* ═══════════════════════════════════════════════════
+                       BANNER SLIDER — Horizontal Slide · No Zoom · Full Image
+                    ═══════════════════════════════════════════════════ */
                     .ftr-slider {
                         position: relative;
                         width: 100%;
-                        height: 360px;
+                        height: 420px;
                         overflow: hidden;
-                        background: #000;
-                        border-bottom: 3px solid rgba(245, 158, 11, 0.5);
+                        background: #060f1e;
+                        border-bottom: 3px solid #f59e0b;
+                        box-shadow: 0 8px 32px rgba(0,0,0,0.5);
                     }
-
+                    /* Slides use a horizontal track — each sits side-by-side */
                     .ftr-slide {
                         position: absolute;
                         inset: 0;
+                        transform: translateX(100%);
+                        transition: transform 0.85s cubic-bezier(0.77,0,0.18,1), opacity 0.85s ease;
                         opacity: 0;
-                        transition: opacity 1s ease;
                         pointer-events: none;
                     }
-
+                    .ftr-slide.leaving {
+                        transform: translateX(-100%);
+                        opacity: 0;
+                        pointer-events: none;
+                    }
                     .ftr-slide.active {
+                        transform: translateX(0%);
                         opacity: 1;
                         pointer-events: auto;
+                        transition: transform 0.85s cubic-bezier(0.77,0,0.18,1), opacity 0.85s ease;
                     }
-
-                    /* Ken Burns background */
+                    /* Background image — no zoom, full cover at scale 1 */
                     .ftr-bg {
                         position: absolute;
-                        inset: -8%;
-                        background: var(--bg) center/cover no-repeat;
-                        animation: ftrKenBurns 12s ease-in-out infinite alternate;
-                        will-change: transform;
+                        inset: 0;
+                        background: var(--bg) center / cover no-repeat;
+                        transform: scale(1);
+                        will-change: auto;
                     }
-
-                    .ftr-slide.active .ftr-bg {
-                        animation: ftrKenBurns 12s ease-in-out infinite alternate;
-                    }
-
-                    @keyframes ftrKenBurns {
-                        0% {
-                            transform: scale(1.0) translate(0%, 0%);
-                        }
-
-                        33% {
-                            transform: scale(1.08) translate(-1.5%, 1%);
-                        }
-
-                        66% {
-                            transform: scale(1.05) translate(1.5%, -1%);
-                        }
-
-                        100% {
-                            transform: scale(1.1) translate(0%, 2%);
-                        }
-                    }
-
-                    /* Light gradient overlay — images visible at ~90% */
                     .ftr-overlay {
                         position: absolute;
                         inset: 0;
-                        background: linear-gradient(135deg,
-                                rgba(0, 0, 0, 0.10) 0%,
-                                rgba(13, 27, 46, 0.08) 50%,
-                                rgba(0, 0, 0, 0.12) 100%);
+                        background:
+                            linear-gradient(105deg, rgba(5,14,30,0.75) 0%, rgba(8,22,50,0.42) 45%, rgba(0,0,0,0.06) 100%),
+                            linear-gradient(0deg,   rgba(5,14,30,0.70) 0%, transparent 42%);
                     }
-
-                    /* Scanline texture */
-                    .ftr-scanline {
-                        position: absolute;
-                        inset: 0;
-                        background: repeating-linear-gradient(0deg,
-                                transparent,
-                                transparent 3px,
-                                rgba(0, 0, 0, 0.07) 3px,
-                                rgba(0, 0, 0, 0.07) 4px);
-                        pointer-events: none;
-                        z-index: 1;
-                    }
-
-                    /* Content */
+                    .ftr-scanline { display: none; }
                     .ftr-content {
                         position: absolute;
                         inset: 0;
                         z-index: 2;
                         display: flex;
                         flex-direction: column;
-                        justify-content: center;
+                        justify-content: flex-end;
                         align-items: flex-start;
-                        padding: 40px 60px;
-                        background: linear-gradient(90deg, rgba(0, 0, 0, 0.55) 0%, rgba(0, 0, 0, 0.25) 55%, transparent 100%);
+                        padding: 0 52px 50px;
                     }
-
-                    .ftr-slide.active .ftr-badge {
-                        animation: ftrSlideUp 0.6s 0.2s both ease-out;
-                    }
-
-                    .ftr-slide.active .ftr-title {
-                        animation: ftrSlideUp 0.7s 0.4s both ease-out;
-                    }
-
-                    .ftr-slide.active .ftr-sub {
-                        animation: ftrSlideUp 0.7s 0.6s both ease-out;
-                    }
-
-                    .ftr-slide.active .ftr-line {
-                        animation: ftrExpand 0.8s 0.8s both ease-out;
-                    }
-
-                    @keyframes ftrSlideUp {
-                        from {
-                            opacity: 0;
-                            transform: translateY(28px);
-                        }
-
-                        to {
-                            opacity: 1;
-                            transform: translateY(0);
-                        }
-                    }
-
-                    @keyframes ftrExpand {
-                        from {
-                            width: 0;
-                            opacity: 0;
-                        }
-
-                        to {
-                            width: 80px;
-                            opacity: 1;
-                        }
-                    }
-
                     .ftr-badge {
-                        display: inline-block;
-                        background: rgba(245, 158, 11, 0.18);
-                        border: 1px solid rgba(245, 158, 11, 0.55);
+                        display: inline-flex;
+                        align-items: center;
+                        gap: 7px;
+                        background: rgba(245,158,11,0.14);
+                        border: 1.5px solid rgba(245,158,11,0.65);
                         color: #f59e0b;
-                        font-size: 12px;
-                        font-weight: 700;
-                        letter-spacing: 2px;
-                        padding: 5px 14px;
-                        border-radius: 20px;
-                        margin-bottom: 14px;
-                        text-transform: uppercase;
-                        backdrop-filter: blur(4px);
-                        box-shadow: 0 0 12px rgba(245, 158, 11, 0.2);
-                    }
-
-                    .ftr-title {
-                        font-family: 'Poppins', sans-serif;
-                        font-size: 38px;
+                        font-family: 'Space Grotesk','Arial',sans-serif;
+                        font-size: 11px;
                         font-weight: 800;
-                        color: #ffffff;
-                        line-height: 1.15;
-                        margin: 0 0 12px;
-                        text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.9), 0 4px 24px rgba(0, 0, 0, 0.95), 0 0 40px rgba(0, 0, 0, 0.8);
-                        letter-spacing: 1px;
+                        letter-spacing: 2.5px;
+                        padding: 6px 18px;
+                        border-radius: 4px;
+                        margin-bottom: 18px;
+                        text-transform: uppercase;
+                        backdrop-filter: blur(8px);
+                        box-shadow: 0 0 22px rgba(245,158,11,0.20), inset 0 1px 0 rgba(255,255,255,0.10);
+                        opacity: 0;
                     }
-
+                    .ftr-badge::before { content: '🔒'; font-size: 12px; }
+                    .ftr-title {
+                        font-family: 'Poppins','Arial',sans-serif;
+                        font-size: 44px;
+                        font-weight: 900;
+                        color: #ffffff;
+                        line-height: 1.12;
+                        margin: 0 0 14px;
+                        text-shadow: 0 2px 0 rgba(0,0,0,0.95), 0 6px 30px rgba(0,0,0,0.9);
+                        letter-spacing: 0.5px;
+                        opacity: 0;
+                    }
                     .ftr-title span {
                         color: #f59e0b;
                         display: block;
-                        text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.9), 0 0 30px rgba(245, 158, 11, 0.7);
+                        text-shadow: 0 2px 0 rgba(0,0,0,0.95), 0 0 40px rgba(245,158,11,0.75), 0 6px 24px rgba(0,0,0,0.9);
                     }
-
                     .ftr-sub {
-                        font-size: 14px;
-                        color: #ffffff;
-                        font-weight: 600;
-                        margin-bottom: 18px;
-                        max-width: 420px;
-                        line-height: 1.65;
-                        letter-spacing: 0.4px;
-                        text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.9), 0 2px 12px rgba(0, 0, 0, 0.95);
+                        font-family: 'Space Grotesk','Arial',sans-serif;
+                        font-size: 14.5px;
+                        color: rgba(255,255,255,0.88);
+                        font-weight: 500;
+                        margin-bottom: 22px;
+                        max-width: 500px;
+                        line-height: 1.7;
+                        letter-spacing: 0.3px;
+                        text-shadow: 0 1px 0 rgba(0,0,0,1), 0 2px 16px rgba(0,0,0,0.95);
+                        opacity: 0;
                     }
-
                     .ftr-line {
                         height: 3px;
-                        width: 80px;
-                        background: linear-gradient(90deg, #f59e0b, #ef4444);
+                        width: 0;
+                        background: linear-gradient(90deg, #f59e0b, #fcd34d, #f59e0b);
                         border-radius: 3px;
-                        box-shadow: 0 0 12px rgba(245, 158, 11, 0.5);
+                        box-shadow: 0 0 16px rgba(245,158,11,0.65);
+                        opacity: 0;
                     }
-
-                    /* Arrows */
+                    /* Staggered entry — only on active slide */
+                    .ftr-slide.active .ftr-badge { animation: ftrFadeUp 0.6s 0.30s both cubic-bezier(0.34,1.56,0.64,1); }
+                    .ftr-slide.active .ftr-title { animation: ftrFadeUp 0.7s 0.50s both cubic-bezier(0.34,1.56,0.64,1); }
+                    .ftr-slide.active .ftr-sub   { animation: ftrFadeUp 0.7s 0.70s both ease-out; }
+                    .ftr-slide.active .ftr-line  { animation: ftrExpandLine 0.85s 0.90s both ease-out; }
+                    @keyframes ftrFadeUp {
+                        from { opacity: 0; transform: translateY(20px); }
+                        to   { opacity: 1; transform: translateY(0); }
+                    }
+                    @keyframes ftrExpandLine {
+                        from { width: 0;    opacity: 0; }
+                        to   { width: 90px; opacity: 1; }
+                    }
+                    /* Nav arrows */
                     .ftr-arrow {
                         position: absolute;
-                        top: 50%;
-                        transform: translateY(-50%);
+                        top: 50%; transform: translateY(-50%);
                         z-index: 10;
-                        background: rgba(245, 158, 11, 0.15);
-                        border: 1.5px solid rgba(245, 158, 11, 0.4);
+                        background: rgba(5,14,30,0.55);
+                        border: 1.5px solid rgba(245,158,11,0.45);
                         color: #f59e0b;
-                        width: 40px;
-                        height: 40px;
+                        width: 46px; height: 46px;
                         border-radius: 50%;
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
-                        font-size: 20px;
+                        display: flex; align-items: center; justify-content: center;
+                        font-size: 22px;
                         cursor: pointer;
-                        transition: all 0.25s;
-                        backdrop-filter: blur(6px);
+                        transition: all 0.28s cubic-bezier(0.34,1.56,0.64,1);
+                        backdrop-filter: blur(10px);
+                        box-shadow: 0 4px 16px rgba(0,0,0,0.4);
                     }
-
                     .ftr-arrow:hover {
-                        background: rgba(245, 158, 11, 0.45);
-                        transform: translateY(-50%) scale(1.12);
-                        box-shadow: 0 0 16px rgba(245, 158, 11, 0.4);
+                        background: rgba(245,158,11,0.9);
+                        color: #0f1e3a;
+                        border-color: #f59e0b;
+                        transform: translateY(-50%) scale(1.15);
+                        box-shadow: 0 0 24px rgba(245,158,11,0.55);
                     }
-
-                    .ftr-prev {
-                        left: 16px;
-                    }
-
-                    .ftr-next {
-                        right: 16px;
-                    }
-
+                    .ftr-prev { left: 18px; }
+                    .ftr-next { right: 18px; }
                     /* Dots */
                     .ftr-dots {
                         position: absolute;
-                        bottom: 16px;
-                        left: 50%;
-                        transform: translateX(-50%);
-                        display: flex;
-                        gap: 8px;
+                        bottom: 20px; left: 52px;
+                        display: flex; gap: 8px;
                         z-index: 10;
                     }
-
                     .ftr-dot {
-                        width: 8px;
-                        height: 8px;
-                        border-radius: 50%;
-                        background: rgba(255, 255, 255, 0.35);
+                        width: 8px; height: 8px;
+                        border-radius: 4px;
+                        background: rgba(255,255,255,0.28);
                         cursor: pointer;
-                        transition: all 0.3s;
-                        border: 1px solid rgba(255, 255, 255, 0.4);
+                        transition: all 0.35s cubic-bezier(0.34,1.56,0.64,1);
+                        border: 1.5px solid rgba(255,255,255,0.35);
                     }
-
                     .ftr-dot.active {
                         background: #f59e0b;
-                        width: 24px;
-                        border-radius: 4px;
-                        box-shadow: 0 0 8px rgba(245, 158, 11, 0.6);
                         border-color: #f59e0b;
+                        width: 28px;
+                        box-shadow: 0 0 10px rgba(245,158,11,0.6);
                     }
-
                     /* Counter */
                     .ftr-counter {
                         position: absolute;
-                        top: 16px;
-                        right: 20px;
-                        font-size: 12px;
-                        font-weight: 700;
-                        color: rgba(255, 255, 255, 0.55);
-                        letter-spacing: 2px;
+                        bottom: 20px; right: 20px;
                         z-index: 10;
+                        font-family: 'Space Grotesk', monospace;
+                        font-size: 12px; font-weight: 700;
+                        color: rgba(255,255,255,0.65);
+                        letter-spacing: 1px;
+                        background: rgba(5,14,30,0.55);
+                        padding: 4px 12px;
+                        border-radius: 20px;
+                        border: 1px solid rgba(255,255,255,0.12);
+                        backdrop-filter: blur(6px);
                     }
-
-                    #ftrCurrent {
-                        color: #f59e0b;
+                    .ftr-counter span { color: #f59e0b; font-size: 14px; }
+                    /* Amber progress bar */
+                    .ftr-slider::after {
+                        content: '';
+                        position: absolute;
+                        bottom: 0; left: 0;
+                        height: 3px; width: 0%;
+                        background: linear-gradient(90deg, #f59e0b, #fcd34d);
+                        z-index: 20;
+                        animation: ftrProgress 5s linear infinite;
+                        box-shadow: 0 0 10px rgba(245,158,11,0.7);
                     }
-
+                    @keyframes ftrProgress {
+                        0%   { width: 0%;   opacity: 1; }
+                        95%  { width: 100%; opacity: 1; }
+                        100% { width: 100%; opacity: 0; }
+                    }
                     @media (max-width: 600px) {
-                        .ftr-slider {
-                            height: 240px;
-                        }
-
-                        .ftr-title {
-                            font-size: 22px;
-                        }
-
-                        .ftr-content {
-                            padding: 24px 22px;
-                        }
-
-                        .ftr-sub {
-                            font-size: 12px;
-                        }
+                        .ftr-slider  { height: 260px; }
+                        .ftr-title   { font-size: 24px; }
+                        .ftr-content { padding: 0 22px 32px; }
+                        .ftr-sub     { font-size: 12px; }
+                        .ftr-dots    { left: 22px; }
                     }
                 </style>
                 <script>
@@ -1164,25 +1099,68 @@
                         const slides = slider.querySelectorAll('.ftr-slide');
                         const dots = slider.querySelectorAll('.ftr-dot');
                         const counter = document.getElementById('ftrCurrent');
-                        let cur = 0, timer;
+                        let cur = 0, timer, animating = false;
 
-                        function goTo(n) {
-                            slides[cur].classList.remove('active');
+                        function goTo(n, dir) {
+                            if (animating) return;
+                            const next = (n + slides.length) % slides.length;
+                            if (next === cur) return;
+                            animating = true;
+
+                            const leaving = slides[cur];
+                            const entering = slides[next];
+
+                            // Direction: 1 = going forward (new slide comes from right)
+                            //           -1 = going backward (new slide comes from left)
+                            const direction = (dir === undefined)
+                                ? (next > cur || (cur === slides.length - 1 && next === 0) ? 1 : -1)
+                                : dir;
+
+                            // Set starting position of incoming slide
+                            entering.style.transform = direction > 0 ? 'translateX(100%)' : 'translateX(-100%)';
+                            entering.style.opacity = '0';
+                            entering.style.transition = 'none';
+                            entering.classList.remove('leaving');
+
+                            // Force a reflow so the starting position is applied
+                            entering.getBoundingClientRect();
+
+                            // Animate
+                            leaving.style.transition = 'transform 0.85s cubic-bezier(0.77,0,0.18,1), opacity 0.85s ease';
+                            leaving.style.transform = direction > 0 ? 'translateX(-100%)' : 'translateX(100%)';
+                            leaving.style.opacity = '0';
+
+                            entering.style.transition = 'transform 0.85s cubic-bezier(0.77,0,0.18,1), opacity 0.85s ease';
+                            entering.style.transform = 'translateX(0%)';
+                            entering.style.opacity = '1';
+                            entering.classList.add('active');
+
                             dots[cur].classList.remove('active');
-                            cur = (n + slides.length) % slides.length;
-                            slides[cur].classList.add('active');
-                            dots[cur].classList.add('active');
+                            dots[next].classList.add('active');
+                            cur = next;
                             if (counter) counter.textContent = cur + 1;
+
+                            setTimeout(() => {
+                                leaving.classList.remove('active');
+                                leaving.style.transform = '';
+                                leaving.style.opacity = '';
+                                leaving.style.transition = '';
+                                animating = false;
+                            }, 900);
                         }
 
                         function startAuto() {
-                            timer = setInterval(() => goTo(cur + 1), 5000);
+                            timer = setInterval(() => goTo(cur + 1, 1), 5000);
                         }
                         function stopAuto() { clearInterval(timer); }
 
-                        document.getElementById('ftrPrev').addEventListener('click', () => { stopAuto(); goTo(cur - 1); startAuto(); });
-                        document.getElementById('ftrNext').addEventListener('click', () => { stopAuto(); goTo(cur + 1); startAuto(); });
-                        dots.forEach(d => d.addEventListener('click', () => { stopAuto(); goTo(+d.dataset.i); startAuto(); }));
+                        document.getElementById('ftrPrev').addEventListener('click', () => { stopAuto(); goTo(cur - 1, -1); startAuto(); });
+                        document.getElementById('ftrNext').addEventListener('click', () => { stopAuto(); goTo(cur + 1,  1); startAuto(); });
+                        dots.forEach(d => d.addEventListener('click', () => {
+                            const i = +d.dataset.i;
+                            const dir = i > cur ? 1 : -1;
+                            stopAuto(); goTo(i, dir); startAuto();
+                        }));
 
                         startAuto();
                     })();

@@ -529,10 +529,10 @@ function renderBoard(searchTerm = "") {
 
             row.innerHTML = `
                 <div class="dotted-connector" style="border-bottom-color: ${design.circleBg};"></div>
-                <div class="category-circle" style="background-color: ${design.circleBg};">
+                <div class="category-circle">
                     ${cat}
                 </div>
-                <div class="category-box" style="background-color: ${design.boxBg};">
+                <div class="category-box">
                     <div class="service-items-grid" id="col-${cat.replace(/[^a-zA-Z]/g, '')}"></div>
                 </div>
             `;
@@ -549,13 +549,15 @@ function renderBoard(searchTerm = "") {
                 card.href = s.url;
                 card.target = "_blank";
                 card.className = "service-doc-item";
-                card.style.color = "#ffffff";
 
                 card.innerHTML = `
-                    <div class="service-doc-icon">
-                        <img src="${s.icon}" alt="Icon" loading="lazy" onerror="this.src='https://img.icons8.com/color/512/external-link.png'">
+                    <div class="service-doc-item-top">
+                        <div class="service-doc-icon">
+                            <img src="${s.icon}" alt="Icon" loading="lazy" onerror="this.src='https://img.icons8.com/color/512/external-link.png'">
+                        </div>
+                        <span class="service-doc-text" title="${name}">${name}</span>
                     </div>
-                    <span class="service-doc-text" title="${name}">${name}</span>
+                    <span class="service-doc-tag">🔗 ${cat}</span>
                 `;
                 cardsContainer.appendChild(card);
             } else {
