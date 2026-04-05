@@ -407,12 +407,12 @@
             display: flex;
             align-items: center;
             gap: 7px;
-            background: linear-gradient(90deg, rgba(13,71,161,0.92) 0%, rgba(21,101,192,0.88) 100%);
+            background: linear-gradient(90deg, rgba(13, 71, 161, 0.92) 0%, rgba(21, 101, 192, 0.88) 100%);
             border: 1.5px solid rgba(255, 214, 0, 0.75);
             border-radius: 8px;
             padding: 5px 11px 5px 9px;
             max-width: 260px;
-            box-shadow: 0 2px 12px rgba(13,71,161,0.45), 0 0 0 1px rgba(255,214,0,0.15);
+            box-shadow: 0 2px 12px rgba(13, 71, 161, 0.45), 0 0 0 1px rgba(255, 214, 0, 0.15);
             animation: censusSlowBlink 2.4s ease-in-out infinite;
             cursor: default;
             text-decoration: none;
@@ -420,8 +420,17 @@
         }
 
         @keyframes censusSlowBlink {
-            0%, 100% { opacity: 1; box-shadow: 0 2px 12px rgba(13,71,161,0.45), 0 0 0 1px rgba(255,214,0,0.15); }
-            50% { opacity: 0.52; box-shadow: 0 2px 4px rgba(13,71,161,0.2), 0 0 0 1px rgba(255,214,0,0.05); }
+
+            0%,
+            100% {
+                opacity: 1;
+                box-shadow: 0 2px 12px rgba(13, 71, 161, 0.45), 0 0 0 1px rgba(255, 214, 0, 0.15);
+            }
+
+            50% {
+                opacity: 0.52;
+                box-shadow: 0 2px 4px rgba(13, 71, 161, 0.2), 0 0 0 1px rgba(255, 214, 0, 0.05);
+            }
         }
 
         #censusNoticeBox .census-flag {
@@ -448,7 +457,7 @@
 
         #censusNoticeBox .census-sub {
             font-size: 8.5px;
-            color: rgba(255,255,255,0.9);
+            color: rgba(255, 255, 255, 0.9);
             font-family: 'Poppins', sans-serif;
             line-height: 1.3;
         }
@@ -461,9 +470,46 @@
 
         #censusNoticeBox .census-date {
             font-size: 8px;
-            color: rgba(255,255,255,0.75);
+            color: rgba(255, 255, 255, 0.75);
             font-family: 'Poppins', sans-serif;
             margin-top: 2px;
+        }
+
+        /* ===== SIDEBAR NEW BADGE (PRO & OFFICIAL LOOK) ===== */
+        .nav-new-badge {
+            background: linear-gradient(135deg, #e11d48, #be123c);
+            /* Official Red gradient */
+            color: #ffffff;
+            font-size: 8px;
+            /* Small size */
+            font-weight: 800;
+            padding: 2px 6px;
+            border-radius: 4px;
+            margin-left: auto;
+            /* Push to the right */
+            letter-spacing: 0.8px;
+            text-transform: uppercase;
+            box-shadow: 0 2px 6px rgba(225, 29, 72, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+            border: 1px solid #9f1239;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            vertical-align: middle;
+            animation: newBadgePulse 2.5s infinite;
+        }
+
+        @keyframes newBadgePulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(225, 29, 72, 0.5);
+            }
+
+            70% {
+                box-shadow: 0 0 0 4px rgba(225, 29, 72, 0);
+            }
+
+            100% {
+                box-shadow: 0 0 0 0 rgba(225, 29, 72, 0);
+            }
         }
     </style>
 </head>
@@ -568,24 +614,28 @@
                 <a href="all html file/pdf_form.html" class="menu-item">
                     <ion-icon name="document-attach" class="mi-icon"></ion-icon>
                     <span>PDF FORM</span>
+                    <span class="nav-new-badge">NEW</span>
                 </a>
 
                 <!-- 6. Retion Pro -->
                 <a href="all html file/RETION PRO - 2.0vr.html" class="menu-item">
                     <ion-icon name="restaurant" class="mi-icon"></ion-icon>
                     <span>RETION PRO - 2.0vr</span>
+                    <span class="nav-new-badge">NEW</span>
                 </a>
 
                 <!-- 7. Pro ID-Studio -->
                 <a href="all html file/id-card-generator.html" class="menu-item">
                     <ion-icon name="id-card" class="mi-icon"></ion-icon>
                     <span>Pro ID-STUDIO 2.0</span>
+                    <span class="nav-new-badge">NEW</span>
                 </a>
 
                 <!-- 8. E-Card -->
                 <a href="all html file/E-CARD-3.0.html" class="menu-item">
                     <ion-icon name="card" class="mi-icon"></ion-icon>
                     <span>E-CARD-3.0</span>
+                    <span class="nav-new-badge">NEW</span>
                 </a>
             </div>
 
@@ -695,38 +745,46 @@
                         <!-- Census 2027 Notice -->
                         <span class="ticker-item" style="font-weight:700; color:#ffd600;">
                             <ion-icon name="flag" class="ticker-icon" style="color:#ffd600;"></ion-icon>
-                            🇮🇳 Census of India 2027 — Office of the Registrar General &amp; Census Commissioner — Self-Enumeration (HLO) Login:
-                            <a href="https://se.census.gov.in/" target="_blank" style="color:#ffd600; text-decoration:underline; margin:0 4px;">https://se.census.gov.in/</a>
+                            🇮🇳 Census of India 2027 — Office of the Registrar General &amp; Census Commissioner —
+                            Self-Enumeration (HLO) Login:
+                            <a href="https://se.census.gov.in/" target="_blank"
+                                style="color:#ffd600; text-decoration:underline; margin:0 4px;">https://se.census.gov.in/</a>
                             — One Household should use only One Mobile Number — Date: 01 Apr 2026 to 15 Apr 2026
                         </span>
                         <span class="ticker-separator">◆</span>
                         <!-- Item 1 (original) -->
                         <span class="ticker-item">
                             <ion-icon name="information-circle" class="ticker-icon"></ion-icon>
-                            Disclaimer: Not an official government website. This portal provides an easy-to-use interface to access and manage public information from official sources.
+                            Disclaimer: Not an official government website. This portal provides an easy-to-use
+                            interface to access and manage public information from official sources.
                         </span>
                         <span class="ticker-separator">◆</span>
                         <span class="ticker-item">
                             <ion-icon name="shield-checkmark" class="ticker-icon"></ion-icon>
-                            All data shown is sourced from official public records. For official services, please visit your nearest government service centre.
+                            All data shown is sourced from official public records. For official services, please visit
+                            your nearest government service centre.
                         </span>
                         <span class="ticker-separator">◆</span>
                         <!-- Item 2 (duplicate for seamless loop) -->
                         <span class="ticker-item" style="font-weight:700; color:#ffd600;">
                             <ion-icon name="flag" class="ticker-icon" style="color:#ffd600;"></ion-icon>
-                            🇮🇳 Census of India 2027 — Office of the Registrar General &amp; Census Commissioner — Self-Enumeration (HLO) Login:
-                            <a href="https://se.census.gov.in/" target="_blank" style="color:#ffd600; text-decoration:underline; margin:0 4px;">https://se.census.gov.in/</a>
+                            🇮🇳 Census of India 2027 — Office of the Registrar General &amp; Census Commissioner —
+                            Self-Enumeration (HLO) Login:
+                            <a href="https://se.census.gov.in/" target="_blank"
+                                style="color:#ffd600; text-decoration:underline; margin:0 4px;">https://se.census.gov.in/</a>
                             — One Household should use only One Mobile Number — Date: 01 Apr 2026 to 15 Apr 2026
                         </span>
                         <span class="ticker-separator">◆</span>
                         <span class="ticker-item">
                             <ion-icon name="information-circle" class="ticker-icon"></ion-icon>
-                            Disclaimer: Not an official government website. This portal provides an easy-to-use interface to access and manage public information from official sources.
+                            Disclaimer: Not an official government website. This portal provides an easy-to-use
+                            interface to access and manage public information from official sources.
                         </span>
                         <span class="ticker-separator">◆</span>
                         <span class="ticker-item">
                             <ion-icon name="shield-checkmark" class="ticker-icon"></ion-icon>
-                            All data shown is sourced from official public records. For official services, please visit your nearest government service centre.
+                            All data shown is sourced from official public records. For official services, please visit
+                            your nearest government service centre.
                         </span>
                         <span class="ticker-separator">◆</span>
                     </div>
@@ -749,8 +807,18 @@
             ">
                 <style>
                     @keyframes censusTextBlinkRed {
-                        0%, 100% { color: #ff1a1a; text-shadow: 0 0 8px rgba(255, 0, 0, 0.6); opacity: 1; }
-                        50% { color: #ff1a1a; opacity: 0.3; }
+
+                        0%,
+                        100% {
+                            color: #ff1a1a;
+                            text-shadow: 0 0 8px rgba(255, 0, 0, 0.6);
+                            opacity: 1;
+                        }
+
+                        50% {
+                            color: #ff1a1a;
+                            opacity: 0.3;
+                        }
                     }
                 </style>
                 <span style="font-size:17px; line-height:1; flex-shrink:0;">🇮🇳</span>
@@ -771,7 +839,8 @@
                     color: rgba(255,255,255,0.92);
                     font-weight: 500;
                     white-space: nowrap;
-                ">Office of the Registrar General &amp; Census Commissioner &mdash; Self-Enumeration (HLO) Login:</span>
+                ">Office of the Registrar General &amp; Census Commissioner &mdash; Self-Enumeration (HLO)
+                    Login:</span>
                 <a href="https://se.census.gov.in/" target="_blank" style="
                     font-family: 'Poppins', sans-serif;
                     font-size: 10.5px;
@@ -888,28 +957,32 @@
                         overflow: hidden;
                         background: #060f1e;
                         border-bottom: 3px solid #f59e0b;
-                        box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+                        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
                     }
+
                     /* Slides use a horizontal track — each sits side-by-side */
                     .ftr-slide {
                         position: absolute;
                         inset: 0;
                         transform: translateX(100%);
-                        transition: transform 0.85s cubic-bezier(0.77,0,0.18,1), opacity 0.85s ease;
+                        transition: transform 0.85s cubic-bezier(0.77, 0, 0.18, 1), opacity 0.85s ease;
                         opacity: 0;
                         pointer-events: none;
                     }
+
                     .ftr-slide.leaving {
                         transform: translateX(-100%);
                         opacity: 0;
                         pointer-events: none;
                     }
+
                     .ftr-slide.active {
                         transform: translateX(0%);
                         opacity: 1;
                         pointer-events: auto;
-                        transition: transform 0.85s cubic-bezier(0.77,0,0.18,1), opacity 0.85s ease;
+                        transition: transform 0.85s cubic-bezier(0.77, 0, 0.18, 1), opacity 0.85s ease;
                     }
+
                     /* Background image — no zoom, full cover at scale 1 */
                     .ftr-bg {
                         position: absolute;
@@ -918,14 +991,19 @@
                         transform: scale(1);
                         will-change: auto;
                     }
+
                     .ftr-overlay {
                         position: absolute;
                         inset: 0;
                         background:
-                            linear-gradient(105deg, rgba(5,14,30,0.75) 0%, rgba(8,22,50,0.42) 45%, rgba(0,0,0,0.06) 100%),
-                            linear-gradient(0deg,   rgba(5,14,30,0.70) 0%, transparent 42%);
+                            linear-gradient(105deg, rgba(5, 14, 30, 0.75) 0%, rgba(8, 22, 50, 0.42) 45%, rgba(0, 0, 0, 0.06) 100%),
+                            linear-gradient(0deg, rgba(5, 14, 30, 0.70) 0%, transparent 42%);
                     }
-                    .ftr-scanline { display: none; }
+
+                    .ftr-scanline {
+                        display: none;
+                    }
+
                     .ftr-content {
                         position: absolute;
                         inset: 0;
@@ -936,14 +1014,15 @@
                         align-items: flex-start;
                         padding: 0 52px 50px;
                     }
+
                     .ftr-badge {
                         display: inline-flex;
                         align-items: center;
                         gap: 7px;
-                        background: rgba(245,158,11,0.14);
-                        border: 1.5px solid rgba(245,158,11,0.65);
+                        background: rgba(245, 158, 11, 0.14);
+                        border: 1.5px solid rgba(245, 158, 11, 0.65);
                         color: #f59e0b;
-                        font-family: 'Space Grotesk','Arial',sans-serif;
+                        font-family: 'Space Grotesk', 'Arial', sans-serif;
                         font-size: 11px;
                         font-weight: 800;
                         letter-spacing: 2.5px;
@@ -952,144 +1031,235 @@
                         margin-bottom: 18px;
                         text-transform: uppercase;
                         backdrop-filter: blur(8px);
-                        box-shadow: 0 0 22px rgba(245,158,11,0.20), inset 0 1px 0 rgba(255,255,255,0.10);
+                        box-shadow: 0 0 22px rgba(245, 158, 11, 0.20), inset 0 1px 0 rgba(255, 255, 255, 0.10);
                         opacity: 0;
                     }
-                    .ftr-badge::before { content: '🔒'; font-size: 12px; }
+
+                    .ftr-badge::before {
+                        content: '🔒';
+                        font-size: 12px;
+                    }
+
                     .ftr-title {
-                        font-family: 'Poppins','Arial',sans-serif;
+                        font-family: 'Poppins', 'Arial', sans-serif;
                         font-size: 44px;
                         font-weight: 900;
                         color: #ffffff;
                         line-height: 1.12;
                         margin: 0 0 14px;
-                        text-shadow: 0 2px 0 rgba(0,0,0,0.95), 0 6px 30px rgba(0,0,0,0.9);
+                        text-shadow: 0 2px 0 rgba(0, 0, 0, 0.95), 0 6px 30px rgba(0, 0, 0, 0.9);
                         letter-spacing: 0.5px;
                         opacity: 0;
                     }
+
                     .ftr-title span {
                         color: #f59e0b;
                         display: block;
-                        text-shadow: 0 2px 0 rgba(0,0,0,0.95), 0 0 40px rgba(245,158,11,0.75), 0 6px 24px rgba(0,0,0,0.9);
+                        text-shadow: 0 2px 0 rgba(0, 0, 0, 0.95), 0 0 40px rgba(245, 158, 11, 0.75), 0 6px 24px rgba(0, 0, 0, 0.9);
                     }
+
                     .ftr-sub {
-                        font-family: 'Space Grotesk','Arial',sans-serif;
+                        font-family: 'Space Grotesk', 'Arial', sans-serif;
                         font-size: 14.5px;
-                        color: rgba(255,255,255,0.88);
+                        color: rgba(255, 255, 255, 0.88);
                         font-weight: 500;
                         margin-bottom: 22px;
                         max-width: 500px;
                         line-height: 1.7;
                         letter-spacing: 0.3px;
-                        text-shadow: 0 1px 0 rgba(0,0,0,1), 0 2px 16px rgba(0,0,0,0.95);
+                        text-shadow: 0 1px 0 rgba(0, 0, 0, 1), 0 2px 16px rgba(0, 0, 0, 0.95);
                         opacity: 0;
                     }
+
                     .ftr-line {
                         height: 3px;
                         width: 0;
                         background: linear-gradient(90deg, #f59e0b, #fcd34d, #f59e0b);
                         border-radius: 3px;
-                        box-shadow: 0 0 16px rgba(245,158,11,0.65);
+                        box-shadow: 0 0 16px rgba(245, 158, 11, 0.65);
                         opacity: 0;
                     }
+
                     /* Staggered entry — only on active slide */
-                    .ftr-slide.active .ftr-badge { animation: ftrFadeUp 0.6s 0.30s both cubic-bezier(0.34,1.56,0.64,1); }
-                    .ftr-slide.active .ftr-title { animation: ftrFadeUp 0.7s 0.50s both cubic-bezier(0.34,1.56,0.64,1); }
-                    .ftr-slide.active .ftr-sub   { animation: ftrFadeUp 0.7s 0.70s both ease-out; }
-                    .ftr-slide.active .ftr-line  { animation: ftrExpandLine 0.85s 0.90s both ease-out; }
+                    .ftr-slide.active .ftr-badge {
+                        animation: ftrFadeUp 0.6s 0.30s both cubic-bezier(0.34, 1.56, 0.64, 1);
+                    }
+
+                    .ftr-slide.active .ftr-title {
+                        animation: ftrFadeUp 0.7s 0.50s both cubic-bezier(0.34, 1.56, 0.64, 1);
+                    }
+
+                    .ftr-slide.active .ftr-sub {
+                        animation: ftrFadeUp 0.7s 0.70s both ease-out;
+                    }
+
+                    .ftr-slide.active .ftr-line {
+                        animation: ftrExpandLine 0.85s 0.90s both ease-out;
+                    }
+
                     @keyframes ftrFadeUp {
-                        from { opacity: 0; transform: translateY(20px); }
-                        to   { opacity: 1; transform: translateY(0); }
+                        from {
+                            opacity: 0;
+                            transform: translateY(20px);
+                        }
+
+                        to {
+                            opacity: 1;
+                            transform: translateY(0);
+                        }
                     }
+
                     @keyframes ftrExpandLine {
-                        from { width: 0;    opacity: 0; }
-                        to   { width: 90px; opacity: 1; }
+                        from {
+                            width: 0;
+                            opacity: 0;
+                        }
+
+                        to {
+                            width: 90px;
+                            opacity: 1;
+                        }
                     }
+
                     /* Nav arrows */
                     .ftr-arrow {
                         position: absolute;
-                        top: 50%; transform: translateY(-50%);
+                        top: 50%;
+                        transform: translateY(-50%);
                         z-index: 10;
-                        background: rgba(5,14,30,0.55);
-                        border: 1.5px solid rgba(245,158,11,0.45);
+                        background: rgba(5, 14, 30, 0.55);
+                        border: 1.5px solid rgba(245, 158, 11, 0.45);
                         color: #f59e0b;
-                        width: 46px; height: 46px;
+                        width: 46px;
+                        height: 46px;
                         border-radius: 50%;
-                        display: flex; align-items: center; justify-content: center;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
                         font-size: 22px;
                         cursor: pointer;
-                        transition: all 0.28s cubic-bezier(0.34,1.56,0.64,1);
+                        transition: all 0.28s cubic-bezier(0.34, 1.56, 0.64, 1);
                         backdrop-filter: blur(10px);
-                        box-shadow: 0 4px 16px rgba(0,0,0,0.4);
+                        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
                     }
+
                     .ftr-arrow:hover {
-                        background: rgba(245,158,11,0.9);
+                        background: rgba(245, 158, 11, 0.9);
                         color: #0f1e3a;
                         border-color: #f59e0b;
                         transform: translateY(-50%) scale(1.15);
-                        box-shadow: 0 0 24px rgba(245,158,11,0.55);
+                        box-shadow: 0 0 24px rgba(245, 158, 11, 0.55);
                     }
-                    .ftr-prev { left: 18px; }
-                    .ftr-next { right: 18px; }
+
+                    .ftr-prev {
+                        left: 18px;
+                    }
+
+                    .ftr-next {
+                        right: 18px;
+                    }
+
                     /* Dots */
                     .ftr-dots {
                         position: absolute;
-                        bottom: 20px; left: 52px;
-                        display: flex; gap: 8px;
+                        bottom: 20px;
+                        left: 52px;
+                        display: flex;
+                        gap: 8px;
                         z-index: 10;
                     }
+
                     .ftr-dot {
-                        width: 8px; height: 8px;
+                        width: 8px;
+                        height: 8px;
                         border-radius: 4px;
-                        background: rgba(255,255,255,0.28);
+                        background: rgba(255, 255, 255, 0.28);
                         cursor: pointer;
-                        transition: all 0.35s cubic-bezier(0.34,1.56,0.64,1);
-                        border: 1.5px solid rgba(255,255,255,0.35);
+                        transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+                        border: 1.5px solid rgba(255, 255, 255, 0.35);
                     }
+
                     .ftr-dot.active {
                         background: #f59e0b;
                         border-color: #f59e0b;
                         width: 28px;
-                        box-shadow: 0 0 10px rgba(245,158,11,0.6);
+                        box-shadow: 0 0 10px rgba(245, 158, 11, 0.6);
                     }
+
                     /* Counter */
                     .ftr-counter {
                         position: absolute;
-                        bottom: 20px; right: 20px;
+                        bottom: 20px;
+                        right: 20px;
                         z-index: 10;
                         font-family: 'Space Grotesk', monospace;
-                        font-size: 12px; font-weight: 700;
-                        color: rgba(255,255,255,0.65);
+                        font-size: 12px;
+                        font-weight: 700;
+                        color: rgba(255, 255, 255, 0.65);
                         letter-spacing: 1px;
-                        background: rgba(5,14,30,0.55);
+                        background: rgba(5, 14, 30, 0.55);
                         padding: 4px 12px;
                         border-radius: 20px;
-                        border: 1px solid rgba(255,255,255,0.12);
+                        border: 1px solid rgba(255, 255, 255, 0.12);
                         backdrop-filter: blur(6px);
                     }
-                    .ftr-counter span { color: #f59e0b; font-size: 14px; }
+
+                    .ftr-counter span {
+                        color: #f59e0b;
+                        font-size: 14px;
+                    }
+
                     /* Amber progress bar */
                     .ftr-slider::after {
                         content: '';
                         position: absolute;
-                        bottom: 0; left: 0;
-                        height: 3px; width: 0%;
+                        bottom: 0;
+                        left: 0;
+                        height: 3px;
+                        width: 0%;
                         background: linear-gradient(90deg, #f59e0b, #fcd34d);
                         z-index: 20;
                         animation: ftrProgress 5s linear infinite;
-                        box-shadow: 0 0 10px rgba(245,158,11,0.7);
+                        box-shadow: 0 0 10px rgba(245, 158, 11, 0.7);
                     }
+
                     @keyframes ftrProgress {
-                        0%   { width: 0%;   opacity: 1; }
-                        95%  { width: 100%; opacity: 1; }
-                        100% { width: 100%; opacity: 0; }
+                        0% {
+                            width: 0%;
+                            opacity: 1;
+                        }
+
+                        95% {
+                            width: 100%;
+                            opacity: 1;
+                        }
+
+                        100% {
+                            width: 100%;
+                            opacity: 0;
+                        }
                     }
+
                     @media (max-width: 600px) {
-                        .ftr-slider  { height: 260px; }
-                        .ftr-title   { font-size: 24px; }
-                        .ftr-content { padding: 0 22px 32px; }
-                        .ftr-sub     { font-size: 12px; }
-                        .ftr-dots    { left: 22px; }
+                        .ftr-slider {
+                            height: 260px;
+                        }
+
+                        .ftr-title {
+                            font-size: 24px;
+                        }
+
+                        .ftr-content {
+                            padding: 0 22px 32px;
+                        }
+
+                        .ftr-sub {
+                            font-size: 12px;
+                        }
+
+                        .ftr-dots {
+                            left: 22px;
+                        }
                     }
                 </style>
                 <script>
@@ -1155,7 +1325,7 @@
                         function stopAuto() { clearInterval(timer); }
 
                         document.getElementById('ftrPrev').addEventListener('click', () => { stopAuto(); goTo(cur - 1, -1); startAuto(); });
-                        document.getElementById('ftrNext').addEventListener('click', () => { stopAuto(); goTo(cur + 1,  1); startAuto(); });
+                        document.getElementById('ftrNext').addEventListener('click', () => { stopAuto(); goTo(cur + 1, 1); startAuto(); });
                         dots.forEach(d => d.addEventListener('click', () => {
                             const i = +d.dataset.i;
                             const dir = i > cur ? 1 : -1;

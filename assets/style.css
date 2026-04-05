@@ -274,8 +274,11 @@ body {
 .sidebar-menu {
     flex: 1;
     overflow: visible;
-    padding: 0 16px;
+    padding: 10px 16px;
     flex-shrink: 0;
+    background: rgba(255, 255, 255, 0.04); /* 4% light background */
+    border-radius: 8px;
+    margin: 0 8px;
 }
 
 .menu-item {
@@ -597,7 +600,7 @@ body {
     display: inline-flex;
     align-items: center;
     white-space: nowrap;
-    animation: tickerScroll 28s linear infinite;
+    animation: tickerScroll 45s linear infinite;
     gap: 0;
 }
 
