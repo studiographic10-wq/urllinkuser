@@ -475,6 +475,23 @@
             margin-top: 2px;
         }
 
+        /* ===== MASTER FORM LOGO BLINK (Topbar) ===== */
+        @keyframes masterLogoBlink {
+            0%, 100% {
+                opacity: 1;
+                filter: drop-shadow(0 0 5px rgba(245, 158, 11, 0.9)) brightness(1.1);
+            }
+            50% {
+                opacity: 0.35;
+                filter: drop-shadow(0 0 0px rgba(245, 158, 11, 0)) brightness(1);
+            }
+        }
+
+        .master-form-logo-blink {
+            animation: masterLogoBlink 2.4s ease-in-out infinite;
+            border-radius: 5px;
+        }
+
         /* ===== CSC LOGIN ICON BLINK ===== */
         .csc-login-icon {
             color: #f59e0b !important;
@@ -709,12 +726,13 @@
                             style="background-color: transparent; border: none; margin-left: 5px;">
                             <img src="https://e7.pngegg.com/pngimages/783/513/png-clipart-computer-icons-form-organization-internet-email-ticket-miscellaneous-text.png"
                                 alt="Master Form"
-                                style="width: 32px; height: 32px; border-radius: 5px; object-fit: cover; display: block;">
+                                class="master-form-logo-blink"
+                                style="width: 22px; height: 22px; border-radius: 5px; object-fit: cover; display: block;">
                         </a>
 
                         <span id="headerTitle"
                             style="color: #ffffff; font-family: 'Poppins', sans-serif; font-weight: 800; letter-spacing: 1px; text-shadow: 0 4px 6px rgba(0,0,0,0.3);">
-                            ALL SERVICES IN ONE PLACE </span>
+                            GENERATE A WORK ORDER FORM </span>
                     </h1>
                     <div class="view-toggles">
                         <button class="view-btn" id="btnTableView"><ion-icon name="list-outline"></ion-icon> Table
