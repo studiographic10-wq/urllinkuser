@@ -475,6 +475,23 @@
             margin-top: 2px;
         }
 
+        /* ===== CSC LOGIN ICON BLINK ===== */
+        .csc-login-icon {
+            color: #f59e0b !important;
+            animation: cscIconBlink 2.2s ease-in-out infinite;
+        }
+
+        @keyframes cscIconBlink {
+            0%, 100% {
+                opacity: 1;
+                filter: drop-shadow(0 0 6px rgba(245, 158, 11, 0.85));
+            }
+            50% {
+                opacity: 0.35;
+                filter: drop-shadow(0 0 0px rgba(245, 158, 11, 0));
+            }
+        }
+
         /* ===== SIDEBAR NEW BADGE (PRO & OFFICIAL LOOK) ===== */
         .nav-new-badge {
             background: linear-gradient(135deg, #e11d48, #be123c);
@@ -606,7 +623,7 @@
                 <!-- 4. CSC Official Login -->
                 <a href="https://connect.csc.gov.in/account/authorize?response_type=code&client_id=0f8ca686-5a31-46b8-bb51-d9834ba9fa9d&redirect_uri=https%3A%2F%2Fdigitalseva.csc.gov.in%2Fauth%2Fcallback%2F&state=85997"
                     class="menu-item">
-                    <ion-icon name="finger-print" class="mi-icon"></ion-icon>
+                    <ion-icon name="finger-print" class="mi-icon csc-login-icon"></ion-icon>
                     <span>CSC OFFICIAL LOGIN</span>
                 </a>
 
@@ -636,6 +653,13 @@
                     <ion-icon name="card" class="mi-icon"></ion-icon>
                     <span>E-CARD-3.0</span>
                     <span class="nav-new-badge">NEW</span>
+                </a>
+
+                <!-- 9. Affidavit Form -->
+                <a href="all html file/AFFIDAVIT-FORM.html" class="menu-item" target="_blank">
+                    <ion-icon name="document-text" class="mi-icon"></ion-icon>
+                    <span style="font-size: 10.5px; line-height: 1.3; flex: 1; min-width: 0;">AFFIDAVIT FORM FOR PAN DOB-1.0vr</span>
+                    <span class="nav-new-badge" style="flex-shrink: 0;">NEW</span>
                 </a>
             </div>
 
